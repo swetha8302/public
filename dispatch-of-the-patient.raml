@@ -1,0 +1,63 @@
+#%RAML 1.0
+title: Dispatch of the patient
+description: 
+baseUri:  https://anypoint.mulesoft.com/mocking/api/v1/links/054fa96c-792a-4a24-b3d2-e8168a4119e1/pat-dir/pat-api/
+
+/read-patient:
+    post:
+      body:
+        application/json:
+          example:
+            {
+           "pat-id": 100,
+           "pat-name": "Ram",
+           "status": "injured"
+            }
+            responses:
+              200:
+                body:
+                  application/json:
+                    example:
+                      {
+                        "status":200,
+                        "message":"success"
+                      }
+                    500:
+                      body:
+                        application/json:
+                          example:
+                            {
+                              "status":500,
+                              "message":"Internal server error"
+                            }
+    /update-patient:
+         put:
+          body:
+             application/json:
+               example:
+                 {
+                   "pat-id":100,
+                   "pat-name":"Ram",
+                   "bill-payment":complete
+                 }
+            responses:
+              200:
+                body:
+                  application/json:
+                    example:
+                      {
+                        status:200,
+                        message:"success"
+                      }
+                  500:
+                    body:
+                      application/json:
+                        example:
+                          {
+                            status:500,
+                            "message":" not completed"
+                 is:
+                            -          }
+
+
+    
