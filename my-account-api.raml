@@ -1,0 +1,46 @@
+#%RAML 1.0
+title: My-Account-API
+
+protocols: [http,https]
+
+   /accounts:
+    post:
+      description:create saving account for the customer
+      body:
+        application/json:
+          example:.json
+          responses:
+            201:
+              body:
+                application/json:
+                  example:include Account Resp.json
+    get:
+      description: Fetch balance account
+      customer id:
+        query parameters:
+          customerId:
+            type:string
+            required:true
+            example:"cust1234"
+          responses:
+            200:
+              body:
+                application/json:
+                  example:!include AccountResp.json  
+    /{accountId}:
+     get:
+       description: Fetch savings account
+       responses:
+         200:
+           body:
+             application/json:
+               example:!include savingAccount.json
+    /balances:
+      get:
+        description: Fetch Balances of the account
+        res
+
+    /transaction:
+      get: 
+    /{transactionId}
+      get:
